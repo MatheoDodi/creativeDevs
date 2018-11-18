@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-4">
-        <div className="container">
+        <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             creativeDevs
           </Link>

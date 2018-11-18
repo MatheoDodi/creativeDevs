@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
@@ -9,20 +11,24 @@ import Register from './components/auth/Register';
 
 import './App.css';
 
+const store = createStore(() => [], {}, applyMiddleware);
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Fragment>
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <div className="container">
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-          </div>
-          <Footer />
-        </Fragment>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Fragment>
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <div className="container">
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+            </div>
+            <Footer />
+          </Fragment>
+        </Router>
+      </Provider>
     );
   }
 }
