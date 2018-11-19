@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { handleRegisterUser } from '../../actions/authActions';
 
 class Register extends Component {
   state = {
@@ -9,6 +11,18 @@ class Register extends Component {
     password2: '',
     errors: {}
   };
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState(() => ({ errors: nextProps.errors }));
+    }
+  }
 
   formInputHandler = e => {
     const value = e.target.value;
@@ -26,18 +40,7 @@ class Register extends Component {
       password2
     };
 
-    axios
-      .post('/api/users/register', newUser)
-      .then(res =>
-        this.setState(() => ({
-          name: '',
-          email: '',
-          password: '',
-          password2: '',
-          errors: {}
-        }))
-      )
-      .catch(err => this.setState(() => ({ errors: err.response.data })));
+    this.props.dispatch(handleRegisterUser(newUser, this.props.history));
   };
 
   render() {
@@ -132,4 +135,9 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps)(withRouter(Register));
