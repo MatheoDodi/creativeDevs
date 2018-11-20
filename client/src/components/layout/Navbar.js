@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogoutUser } from '../../actions/authActions';
+import { clearProfile } from '../../actions/profileActions';
 
 class Navbar extends Component {
   logOutHandler = e => {
     e.preventDefault();
+    this.props.dispatch(clearProfile());
     this.props.dispatch(handleLogoutUser());
     window.location.href = '/';
   };
