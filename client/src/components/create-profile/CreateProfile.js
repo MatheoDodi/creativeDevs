@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { handleCreateProfile } from '../../actions/profileActions';
 
 class CreateProfile extends Component {
   state = {
@@ -46,13 +47,37 @@ class CreateProfile extends Component {
 
   formSubmitHandler = e => {
     e.preventDefault();
-    const { name, email, password, password2 } = this.state;
-    const newUser = {
-      name,
-      email,
-      password,
-      password2
+    const {
+      handle,
+      company,
+      website,
+      location,
+      status,
+      skills,
+      githubusername,
+      bio,
+      twitter,
+      facebook,
+      linkedin,
+      youtube,
+      instagram
+    } = this.state;
+    const newProfile = {
+      handle,
+      company,
+      website,
+      location,
+      status,
+      skills,
+      githubusername,
+      bio,
+      twitter,
+      facebook,
+      linkedin,
+      youtube,
+      instagram
     };
+    this.props.dispatch(handleCreateProfile(newProfile, this.props.history));
   };
 
   render() {
@@ -69,7 +94,7 @@ class CreateProfile extends Component {
                 Let's get some information to make your profile stand out
               </p>
               <small className="d-block pb-3">* = required field</small>
-              <form action="add-experience.html">
+              <form onSubmit={this.formSubmitHandler}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -79,6 +104,11 @@ class CreateProfile extends Component {
                     name="handle"
                     onChange={this.formInputHandler}
                   />
+                  {this.state.errors.handle && (
+                    <small className="invalid-feedback">
+                      {this.state.errors.handle}
+                    </small>
+                  )}
                   <small className="form-text text-muted">
                     A unique handle for your profile URL. Your full name,
                     company name, nickname, etc (This CAN'T be changed later)
@@ -86,7 +116,8 @@ class CreateProfile extends Component {
                 </div>
                 <div className="form-group">
                   <select
-                    className="form-control form-control-lg"
+                    className={`${this.state.errors.status &&
+                      'is-invalid'} form-control form-control-lg`}
                     name="status"
                     onChange={this.formInputHandler}
                   >
@@ -102,6 +133,11 @@ class CreateProfile extends Component {
                     <option value="Intern">Intern</option>
                     <option value="Other">Other</option>
                   </select>
+                  {this.state.errors.status && (
+                    <small className="invalid-feedback">
+                      {this.state.errors.status}
+                    </small>
+                  )}
                   <small className="form-text text-muted">
                     Give us an idea of where you are at in your career
                   </small>
@@ -145,11 +181,17 @@ class CreateProfile extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Skills"
+                    className={`${this.state.errors.status &&
+                      'is-invalid'} form-control form-control-lg`}
+                    placeholder="* Skills"
                     name="skills"
                     onChange={this.formInputHandler}
                   />
+                  {this.state.errors.skills && (
+                    <small className="invalid-feedback">
+                      {this.state.errors.skills}
+                    </small>
+                  )}
                   <small className="form-text text-muted">
                     Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP)
@@ -285,4 +327,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps)(withRouter(CreateProfile));

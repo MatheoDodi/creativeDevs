@@ -26,7 +26,7 @@ export const handleCreateProfile = (profileData, history) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionTypes.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
