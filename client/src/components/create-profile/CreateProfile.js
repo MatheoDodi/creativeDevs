@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class CreateProfile extends Component {
@@ -20,6 +21,12 @@ class CreateProfile extends Component {
     errors: {}
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState(() => ({ errors: nextProps.errors }));
+    }
+  }
+
   formInputHandler = e => {
     const value = e.target.value;
     const element = e.target.name;
@@ -37,15 +44,26 @@ class CreateProfile extends Component {
     }
   };
 
+  formSubmitHandler = e => {
+    e.preventDefault();
+    const { name, email, password, password2 } = this.state;
+    const newUser = {
+      name,
+      email,
+      password,
+      password2
+    };
+  };
+
   render() {
     return (
       <div className="create-profile">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <a href="dashboard.html" className="btn btn-light">
+              <Link to="dashboard" className="btn btn-light">
                 Go Back
-              </a>
+              </Link>
               <h1 className="display-4 text-center">Create Your Profile</h1>
               <p className="lead text-center">
                 Let's get some information to make your profile stand out
@@ -55,7 +73,8 @@ class CreateProfile extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className={`${this.state.errors.handle &&
+                      'is-invalid'} form-control form-control-lg`}
                     placeholder="* Profile handle"
                     name="handle"
                     onChange={this.formInputHandler}
@@ -246,12 +265,12 @@ class CreateProfile extends Component {
                         onChange={this.formInputHandler}
                       />
                     </div>
-                    <input
-                      type="submit"
-                      className="btn btn-info btn-block mt-4"
-                    />
                   </div>
                 )}
+                <input
+                  type="submit"
+                  className="btn btn-danger btn-block mt-4 mb-4"
+                />
               </form>
             </div>
           </div>
