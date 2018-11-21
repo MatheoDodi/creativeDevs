@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
+import { handleDeleteExperience } from '../../actions/profileActions';
 
 class Experience extends Component {
   render() {
@@ -15,7 +16,14 @@ class Experience extends Component {
           {exp.to ? <Moment format="YYYY/MM/DD" date={exp.to} /> : 'Present'}
         </td>
         <td>
-          <button className="btn btn-info">Delete</button>
+          <button
+            onClick={() =>
+              this.props.dispatch(handleDeleteExperience(exp._id)
+            }
+            className="btn btn-info"
+          >
+            Delete
+          </button>
         </td>
       </tr>
     ));
@@ -39,4 +47,4 @@ class Experience extends Component {
   }
 }
 
-export default connect()(withRouter(Experience));
+export default connect()(Experience);
