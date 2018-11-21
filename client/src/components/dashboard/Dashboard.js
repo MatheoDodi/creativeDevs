@@ -8,6 +8,7 @@ import {
 import Spinner from '../UI/Spinner';
 import ProfileActions from './ProfileActions';
 import Experience from './Experience';
+import Education from './Education';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -36,6 +37,7 @@ class Dashboard extends Component {
             <ProfileActions />
             <div style={{ marginBottom: '60px' }} />
             <Experience exp={profile.experience} />
+            <Education edu={profile.education} />
             <button
               onClick={this.onDeleteClickHandler}
               className="btn btn-light"

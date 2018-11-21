@@ -17,9 +17,7 @@ class Experience extends Component {
         </td>
         <td>
           <button
-            onClick={() =>
-              this.props.dispatch(handleDeleteExperience(exp._id)
-            }
+            onClick={() => this.props.dispatch(handleDeleteExperience(exp._id))}
             className="btn btn-info"
           >
             Delete

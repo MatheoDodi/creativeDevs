@@ -68,6 +68,23 @@ export const handleDeleteExperience = expId => dispatch => {
     );
 };
 
+export const handleDeleteEducation = eduId => dispatch => {
+  axios
+    .delete(`api/profile/education/${eduId}`)
+    .then(res =>
+      dispatch({
+        type: actionTypes.GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err.response
+      })
+    );
+};
+
 export const handleAddEducation = (newEdu, history) => dispatch => {
   axios
     .post('/api/profile/education', newEdu)
