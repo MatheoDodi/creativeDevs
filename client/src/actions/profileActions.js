@@ -39,6 +39,18 @@ export const clearProfile = () => ({
   type: actionTypes.CLEAR_CURRENT_PRIFLE
 });
 
+export const handleAddExperience = (newExp, history) => dispatch => {
+  axios
+    .post('/api/profile/experience', newExp)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err.response
+      })
+    );
+};
+
 export const deleteAccount = () => dispatch => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     axios
