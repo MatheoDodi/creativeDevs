@@ -51,6 +51,18 @@ export const handleAddExperience = (newExp, history) => dispatch => {
     );
 };
 
+export const handleAddEducation = (newEdu, history) => dispatch => {
+  axios
+    .post('/api/profile/education', newEdu)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err.response
+      })
+    );
+};
+
 export const deleteAccount = () => dispatch => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     axios

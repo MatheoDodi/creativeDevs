@@ -66,9 +66,9 @@ class AddExperience extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <a href="dashboard.html" className="btn btn-light">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
-              </a>
+              </Link>
               <h1 className="display-4 text-center">Add Your Experience</h1>
               <p className="lead text-center">
                 Add any developer/programming positions that you have had in the
@@ -79,7 +79,7 @@ class AddExperience extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={`${this.state.errors.company &&
+                    className={`${this.state.errors.title &&
                       'is-invalid'} form-control form-control-lg`}
                     placeholder="* Title"
                     name="title"
@@ -122,12 +122,18 @@ class AddExperience extends Component {
                 <div className="form-group">
                   <input
                     type="date"
-                    className="form-control form-control-lg"
+                    className={`${this.state.errors.from &&
+                      'is-invalid'} form-control form-control-lg`}
                     placeholder="from"
                     name="from"
                     value={this.state.from}
                     onChange={this.formInputHandler}
                   />
+                  {this.state.errors.from && (
+                    <small className="invalid-feedback">
+                      {this.state.errors.from}
+                    </small>
+                  )}
                 </div>
                 <h6>To Date</h6>
                 <div className="form-group">
