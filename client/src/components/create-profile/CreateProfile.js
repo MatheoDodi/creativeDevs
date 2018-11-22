@@ -112,6 +112,7 @@ class CreateProfile extends Component {
                   <small className="form-text text-muted">
                     A unique handle for your profile URL. Your full name,
                     company name, nickname, etc (This CAN'T be changed later)
+                    e.g. creativedevs.com/profile/example
                   </small>
                 </div>
                 <div className="form-group">

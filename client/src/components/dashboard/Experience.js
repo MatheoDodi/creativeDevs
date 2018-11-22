@@ -7,27 +7,37 @@ import { handleDeleteExperience } from '../../actions/profileActions';
 class Experience extends Component {
   render() {
     const { exp } = this.props;
-    const experience = exp.map(exp => (
-      <tr key={exp._id}>
-        <td>{exp.company}</td>
-        <td>{exp.title}</td>
-        <td>
-          <Moment format="YYYY/MM/DD" date={exp.from} /> -
-          {exp.to ? <Moment format="YYYY/MM/DD" date={exp.to} /> : 'Present'}
-        </td>
-        <td>
-          <button
-            onClick={() => this.props.dispatch(handleDeleteExperience(exp._id))}
-            className="btn btn-info"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    ));
-    console.log(experience);
+    const experience =
+      exp.length > 0 ? (
+        exp.map(exp => (
+          <tr key={exp._id}>
+            <td>{exp.company}</td>
+            <td>{exp.title}</td>
+            <td>
+              <Moment format="YYYY/MM/DD" date={exp.from} /> -{' '}
+              {exp.to ? (
+                <Moment format="YYYY/MM/DD" date={exp.to} />
+              ) : (
+                'Present'
+              )}
+            </td>
+            <td>
+              <button
+                onClick={() =>
+                  this.props.dispatch(handleDeleteExperience(exp._id))
+                }
+                className="btn btn-info"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <small>You haven't added any experience yet</small>
+      );
     return (
-      <div>
+      <div className="mb-5">
         <h4 className="mb-4">Experience</h4>
         <table className="table">
           <thead>

@@ -6,27 +6,38 @@ import { handleDeleteEducation } from '../../actions/profileActions';
 class Education extends Component {
   render() {
     const { edu } = this.props;
-    const education = edu.map(edu => (
-      <tr key={edu._id}>
-        <td>{edu.school}</td>
-        <td>{edu.degree}</td>
-        <td>{edu.fieldofstudy}</td>
-        <td>
-          <Moment format="YYYY/MM/DD" date={edu.from} /> -{' '}
-          {edu.to ? <Moment format="YYYY/MM/DD" date={edu.to} /> : 'Present'}
-        </td>
-        <td>
-          <button
-            onClick={() => this.props.dispatch(handleDeleteEducation(edu._id))}
-            className="btn btn-info"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    ));
+    const education =
+      edu.length > 0 ? (
+        edu.map(edu => (
+          <tr key={edu._id}>
+            <td>{edu.school}</td>
+            <td>{edu.degree}</td>
+            <td>{edu.fieldofstudy}</td>
+            <td>
+              <Moment format="YYYY/MM/DD" date={edu.from} /> -{' '}
+              {edu.to ? (
+                <Moment format="YYYY/MM/DD" date={edu.to} />
+              ) : (
+                'Present'
+              )}
+            </td>
+            <td>
+              <button
+                onClick={() =>
+                  this.props.dispatch(handleDeleteEducation(edu._id))
+                }
+                className="btn btn-info"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <small>You haven't added any education yet</small>
+      );
     return (
-      <div>
+      <div className="mb-5">
         <h4 className="mb-4">Education</h4>
         <table className="table">
           <thead>
