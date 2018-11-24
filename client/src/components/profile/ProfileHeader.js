@@ -12,7 +12,7 @@ class ProfileHeader extends Component {
         }`}{' '}
       </p>
     );
-    const prsnlWebsite = (
+    const prsnlWebsite = profile.website && (
       <a
         className="text-white p-2"
         href={profile.website}
@@ -22,17 +22,19 @@ class ProfileHeader extends Component {
         <i className="fas fa-globe fa-2x" />
       </a>
     );
-    const socialLinks = Object.keys(profile.social).map(social => (
-      <a
-        key={social}
-        className="text-white p-2"
-        href={profile.social[social]}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i className={`fab fa-${social} fa-2x`} />
-      </a>
-    ));
+    const socialLinks =
+      profile.social &&
+      Object.keys(profile.social).map(social => (
+        <a
+          key={social}
+          className="text-white p-2"
+          href={profile.social[social]}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className={`fab fa-${social} fa-2x`} />
+        </a>
+      ));
 
     return (
       <div className="row">
