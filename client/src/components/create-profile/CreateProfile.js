@@ -182,7 +182,7 @@ class CreateProfile extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={`${this.state.errors.status &&
+                    className={`${this.state.errors.skills &&
                       'is-invalid'} form-control form-control-lg`}
                     placeholder="* Skills"
                     name="skills"
