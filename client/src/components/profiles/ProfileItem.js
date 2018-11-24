@@ -18,22 +18,22 @@ class ProfileItem extends Component {
     if (profile.skills.length > 3) {
       for (let i = 0; i < 3; i++) {
         skills.push(
-          <li class="list-group-item">
-            <i class="fa fa-check pr-1 mr-2" />
+          <li key={profile.skills[i].trim()} className="list-group-item">
+            <i className="fa fa-check pr-1 mr-2" />
             {profile.skills[i].trim()}
           </li>
         );
       }
       skills.push(
-        <li class="list-group-item">
-          <i class="fa fa-check pr-1 mr-2" />
+        <li key={'last'} className="list-group-item">
+          <i className="fa fa-check pr-1 mr-2" />
           {profile.skills.length - 3} more skills
         </li>
       );
     } else {
       skills = profile.skills.map(skill => (
-        <li class="list-group-item">
-          <i class="fa fa-check pr-1 mr-2" />
+        <li key={skill} className="list-group-item">
+          <i className="fa fa-check pr-1 mr-2" />
           {skill}
         </li>
       ));

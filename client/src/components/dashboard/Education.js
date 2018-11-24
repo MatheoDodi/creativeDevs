@@ -34,7 +34,11 @@ class Education extends Component {
           </tr>
         ))
       ) : (
-        <small>You haven't added any education yet</small>
+        <tr>
+          <td>
+            <small>You haven't added any education yet</small>
+          </td>
+        </tr>
       );
     return (
       <div className="mb-5">

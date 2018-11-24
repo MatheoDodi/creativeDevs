@@ -34,7 +34,11 @@ class Experience extends Component {
           </tr>
         ))
       ) : (
-        <small>You haven't added any experience yet</small>
+        <tr>
+          <td>
+            <small>You haven't added any experience yet</small>
+          </td>
+        </tr>
       );
     return (
       <div className="mb-5">
