@@ -44,7 +44,7 @@ class ProfileHeader extends Component {
               <div className="col-4 col-md-3 m-auto">
                 <img
                   className="rounded-circle"
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+                  src={profile.user.avatar}
                   alt=""
                 />
               </div>

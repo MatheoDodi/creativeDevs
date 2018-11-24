@@ -7,7 +7,7 @@ class ProfileAbout extends Component {
     const bio = profile.bio ? (
       profile.bio
     ) : (
-      <span>{firstName} hasn't added a bio yet</span>
+      <span>{firstName} hasn't added his bio yet</span>
     );
     const skills = profile.skills.map((skill, i) => (
       <div key={skill + i} className="p-3">
@@ -19,10 +19,10 @@ class ProfileAbout extends Component {
       <div className="row">
         <div className="col-md-12">
           <div className="card card-body bg-light mb-3">
-            <h3 className="text-center text-info">{firstName}'s Bio</h3>
+            <h3 className="text-center text-danger">{firstName}'s Bio</h3>
             <p className="lead">{bio}</p>
             <hr />
-            <h3 className="text-center text-info">Skill Set</h3>
+            <h3 className="text-center text-danger">Skill Set</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
                 {skills}
