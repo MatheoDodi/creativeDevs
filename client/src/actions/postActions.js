@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 export const handleAddPost = postData => dispatch => {
+  dispatch(clearErrors());
   axios
     .post('/api/posts', postData)
     .then(res =>
@@ -101,6 +102,7 @@ export const handleRemoveLike = id => dispatch => {
 };
 
 export const handleAddComment = (id, commentData) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/posts/comment/${id}`, commentData)
     .then(res =>
@@ -133,3 +135,7 @@ export const handleDeleteComment = (postId, commentId) => dispatch => {
       })
     );
 };
+
+export const clearErrors = () => ({
+  type: actionTypes.CLEAR_ERRORS
+});
