@@ -41,8 +41,8 @@ class Education extends Component {
         </tr>
       );
     return (
-      <div className="mb-5">
-        <h4 className="mb-4">Education</h4>
+      <div className="mb-5 table-responsive">
+        <h4 className="mb-4 ">Education</h4>
         <table className="table">
           <thead>
             <tr>

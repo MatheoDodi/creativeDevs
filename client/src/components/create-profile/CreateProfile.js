@@ -32,7 +32,6 @@ class CreateProfile extends Component {
     const value = e.target.value;
     const element = e.target.name;
     this.setState(() => ({ [element]: value }));
-    console.log(this.state);
   };
 
   showSocialInput = () => {

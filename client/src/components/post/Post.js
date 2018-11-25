@@ -28,8 +28,6 @@ class Post extends Component {
       );
     }
 
-    console.log(post);
-
     return (
       <div>
         <div class="container" />

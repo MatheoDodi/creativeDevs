@@ -40,7 +40,7 @@ class Experience extends Component {
         </tr>
       );
     return (
-      <div className="mb-5">
+      <div className="mb-5 table-responsive">
         <h4 className="mb-4">Experience</h4>
         <table className="table">
           <thead>

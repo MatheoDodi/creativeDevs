@@ -18,6 +18,12 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+            {' '}
+            Dashboard
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/" onClick={this.logOutHandler} className="nav-link">
             <img
               className="rounded-circle"
@@ -50,7 +56,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-4">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/feed">
             creativeDevs
           </Link>
           <button
@@ -64,12 +70,6 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/feed">
-                  {' '}
-                  Post Feed
-                </Link>
-              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}

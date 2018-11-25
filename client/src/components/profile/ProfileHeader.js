@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class ProfileHeader extends Component {
   render() {
     const { profile } = this.props;
-    console.log(profile);
     const experience = profile.experience[0] && (
       <p>
         {' '}

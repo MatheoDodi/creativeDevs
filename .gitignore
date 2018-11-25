@@ -1,7 +1,7 @@
 /node_modules
 /coverage
 /build
-/config/keys.js
+/config/keys_dev.js
 .DS_Store
 .env.local
 .env.development.local
