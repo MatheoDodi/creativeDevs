@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, handleLogoutUser } from './actions/authActions';
 import { clearProfile } from './actions/profileActions';
-import { store } from './store';
+import store from './store';
 import jwt_decode from 'jwt-decode';
 
 import Navbar from './components/layout/Navbar';
