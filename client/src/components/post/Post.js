@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../UI/Spinner';
 import PostItem from '../posts/PostItem';
 import { handleGetSinglePost } from '../../actions/postActions';
 import Comment from './Comment';
+import CommentFeed from './CommentFeed';
 
 class Post extends Component {
   componentDidMount() {
@@ -18,8 +19,16 @@ class Post extends Component {
     if (post == null || loading || Object.keys(post).length === 0) {
       postContent = <Spinner />;
     } else {
-      postContent = <PostItem showActions={false} post={post} />;
+      postContent = (
+        <Fragment>
+          <PostItem showActions={false} post={post} />
+          <Comment postId={post._id} />
+          <CommentFeed postId={post._id} comments={post.comments} />
+        </Fragment>
+      );
     }
+
+    console.log(post);
 
     return (
       <div>
@@ -30,7 +39,6 @@ class Post extends Component {
               Back To Feed
             </Link>
             {postContent}
-            <Comment postId={post._id} />
           </div>
         </div>
       </div>
