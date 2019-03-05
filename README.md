@@ -1,13 +1,97 @@
-# creativeDevs
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-Full Stack web Application built with React, Node, Express and MongoDB
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+    <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="React Logo" width="100">
+    <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" alt="Redux Logo" width="100">
+    <img src="http://pluspng.com/img-png/nodejs-logo-png-node-js-development-296.png" alt="Node Logo" width="100">
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/mongodb-png-5.png" alt="MongoDB Logo" width="100">
 
-Social Networking web app that connects Developers from around the world. Allows users to :
+  <h3 align="center">creativeDevs</h3>
+</p>
 
-- Sign up and create a profile
-- Customize their profile with all their Programming Skills, Experience and Projects
-- Comment, like and reply
+<!-- TABLE OF CONTENTS -->
 
-## OK cool, but how do I see it?
+## Table of Contents
 
-Good news! Finally, after two very long weeks and a lot of debugging the app is live at https://creativedevs.herokuapp.com/ 😄
+- [About the Repo](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+- [Contributing](#contributing)
+- [What Did I Learn](#what-did-i-learn)
+- [Contact](#contact)
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+A Social Network that connects Developers from around the world
+
+### Built With
+
+- [React](https://reactjs.org/)
+- [Router](https://reacttraining.com/react-router/)
+- [Redux](https://redux.js.org/)
+- [Node](https://nodejs.org/en/docs/)
+- [MongoDB](https://docs.mongodb.com/)
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/MatthewDodi/creativeDevs.git
+```
+
+2. Install NPM packages
+
+```sh
+npm install
+```
+
+3. Run the Development Server
+
+```sh
+npm start
+```
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AwesomeFeature`)
+3. Commit your Changes (`git commit -m 'Add some AwesomeFeature`)
+4. Push to the Branch (`git push origin feature/AwesomeFeature`)
+5. Open a Pull Request
+
+## What Did I Learn
+
+- Setting up a server with Express
+- Authentication with JSON Web Tokens
+- Creating a RESTful API
+- Setting up a MongoDB database
+- CRUD in MongoDB
+
+<!-- CONTACT -->
+
+## Contact
+
+Matthew Dodi - [in/MatthewDodi](https://linkedin.com/in/MatthewDodi) - matthew.dodi@gmail.com
+
+Project Link: [https://creativedevs.herokuapp.com/](https://creativedevs.herokuapp.com/)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/MatthewDodi
