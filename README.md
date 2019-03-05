@@ -6,7 +6,7 @@
     <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="React Logo" width="100">
     <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" alt="Redux Logo" width="100">
     <img src="http://pluspng.com/img-png/nodejs-logo-png-node-js-development-296.png" alt="Node Logo" width="100">
-    <img src="https://pngimage.net/wp-content/uploads/2018/06/mongodb-png-5.png" alt="MongoDB Logo" width="100">
+    <img src="http://pluspng.com/img-png/logo-mongodb-png-mongodb-logo-anything-but-the-simplest-of-web-applications-requires-a-database-to-store-and-serve-content-from-choosing-the-right-database-and-structuring-413.png" alt="MongoDB Logo" width="100">
 
   <h3 align="center">creativeDevs</h3>
 </p>
