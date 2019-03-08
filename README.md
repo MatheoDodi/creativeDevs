@@ -27,7 +27,7 @@
 
 ## About The Project
 
-A Social Network that connects Developers from around the world
+A Social Network that connects Developers from around the world!
 
 ### Built With
 
